@@ -5,6 +5,8 @@ using Microsoft.EntityFrameworkCore;
 using AutoMapper;
 
 using Serilog;
+using MagicVilla_VillaApi.Repsitory.IRepository;
+using MagicVilla_VillaApi.Repsitory;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -38,7 +40,12 @@ builder.Services.AddDbContext<ApplicationDBContext>(option => option.UseMySql(
 
 //autoMapper
 builder.Services.AddAutoMapper(typeof(MappingConfig));
+
+builder.Services.AddScoped<IVillaRepo, VillaRepository>();
 var app = builder.Build();
+
+//Reposiitory
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
