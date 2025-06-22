@@ -96,13 +96,7 @@ namespace MagicVilla_VillaApi.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<ApiResponse>> CreateVilla([FromBody] VillaCreateDTO villaDTO)
         {
-            // if (!ModelState.IsValid)
-            // {
-            //     return BadRequest();
-            // }
-
-
-            //custom Validation
+            
             try
             {
                 if (await _db.Get(v => v.Name.ToLower() == villaDTO.Name.ToLower()) != null)
@@ -180,15 +174,6 @@ namespace MagicVilla_VillaApi.Controllers
                     _apiResponse.statusCode = HttpStatusCode.NoContent;
                     return BadRequest(_apiResponse);
                 }
-                // var villa = VillaStore.villaList.FirstOrDefault(v => v.Id == id);
-                // if (villa == null)
-                // {
-                //     return NotFound();
-                // }
-
-                // // villa.Name = villaDTO.Name;
-                // // villa.Occupancy = villaDTO.Occupancy;
-                // // villa.Sqft = villaDTO.Sqft;
                 Villa villa = _mapper.Map<Villa>(villaDTO);
 
                 await _db.Update(villa);

@@ -7,6 +7,8 @@ using AutoMapper;
 using Serilog;
 using MagicVilla_VillaApi.Repsitory.IRepository;
 using MagicVilla_VillaApi.Repsitory;
+using MagicVilla_VillaApi.Models.VillaNumber;
+using MagicVilla_VillaApi.Repsitory.VillaNumberRepo;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -41,10 +43,16 @@ builder.Services.AddDbContext<ApplicationDBContext>(option => option.UseMySql(
 //autoMapper
 builder.Services.AddAutoMapper(typeof(MappingConfig));
 
+// Villa Repository
+
 builder.Services.AddScoped<IVillaRepo, VillaRepository>();
+
+//VillaNumber Repository
+builder.Services.AddScoped<IVillaNumberRepo, VillaNumberRepo>();
+
 var app = builder.Build();
 
-//Reposiitory
+
 
 
 // Configure the HTTP request pipeline.

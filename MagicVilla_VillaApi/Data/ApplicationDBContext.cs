@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MagicVilla_VillaApi.Models;
+using MagicVilla_VillaApi.Models.VillaNumber;
 using Microsoft.EntityFrameworkCore;
 
 namespace MagicVilla_VillaApi.Data
@@ -15,9 +16,9 @@ namespace MagicVilla_VillaApi.Data
 
         }
 
-        //création de la table
+        //création de la table Villas
         public DbSet<Villa> Villas { get; set; }
-        
+        public DbSet<VillaNumber> VillaNumbers{ get; set; }
         
         //remplir la table villa
         protected override void OnModelCreating(ModelBuilder modelBuilder)
