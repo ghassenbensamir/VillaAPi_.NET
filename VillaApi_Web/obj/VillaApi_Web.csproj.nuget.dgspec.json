@@ -4,14 +4,14 @@
     "D:\\Projet_Formation_.NET\\VillaApi_Web\\VillaApi_Web.csproj": {}
   },
   "projects": {
-    "D:\\Projet_Formation_.NET\\VillaApi_Web\\VillaApi_Web.csproj": {
+    "D:\\Projet_Formation_.NET\\MagicVilla_Utility\\MagicVilla_Utility.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projet_Formation_.NET\\VillaApi_Web\\VillaApi_Web.csproj",
-        "projectName": "VillaApi_Web",
-        "projectPath": "D:\\Projet_Formation_.NET\\VillaApi_Web\\VillaApi_Web.csproj",
+        "projectUniqueName": "D:\\Projet_Formation_.NET\\MagicVilla_Utility\\MagicVilla_Utility.csproj",
+        "projectName": "MagicVilla_Utility",
+        "projectPath": "D:\\Projet_Formation_.NET\\MagicVilla_Utility\\MagicVilla_Utility.csproj",
         "packagesPath": "C:\\Users\\ghass\\.nuget\\packages\\",
-        "outputPath": "D:\\Projet_Formation_.NET\\VillaApi_Web\\obj\\",
+        "outputPath": "D:\\Projet_Formation_.NET\\MagicVilla_Utility\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ghass\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -42,6 +42,78 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.411/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Projet_Formation_.NET\\VillaApi_Web\\VillaApi_Web.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Projet_Formation_.NET\\VillaApi_Web\\VillaApi_Web.csproj",
+        "projectName": "VillaApi_Web",
+        "projectPath": "D:\\Projet_Formation_.NET\\VillaApi_Web\\VillaApi_Web.csproj",
+        "packagesPath": "C:\\Users\\ghass\\.nuget\\packages\\",
+        "outputPath": "D:\\Projet_Formation_.NET\\VillaApi_Web\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\ghass\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "D:\\Projet_Formation_.NET\\MagicVilla_Utility\\MagicVilla_Utility.csproj": {
+                "projectPath": "D:\\Projet_Formation_.NET\\MagicVilla_Utility\\MagicVilla_Utility.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[14.0.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[8.0.17, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

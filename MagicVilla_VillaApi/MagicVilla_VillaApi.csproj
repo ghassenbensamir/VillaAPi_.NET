@@ -11,10 +11,18 @@
 
     <PackageReference Include="AutoMapper" Version="14.0.0" />
 
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.17" />
+
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.17" />
+
 
     <PackageReference Include="Microsoft.AspNetCore.JsonPatch" Version="8.0.17" />
 
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="8.0.17" />
+
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.1.0" />
+
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.1.0" />
 
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.17">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -28,6 +36,8 @@
     <PackageReference Include="Serilog.Sinks.File" Version="7.0.0" />
 
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.12.1" />
   </ItemGroup>
 
 </Project>

@@ -14,7 +14,10 @@ using Microsoft.Extensions.Logging;
 
 namespace MagicVilla_VillaApi.Controllers
 {
-    [Route("[controller]")]
+    [ApiController]
+    // [Route("[controller]")]
+    [Route("api/v{version:apiVersion}/VillaNumber")]
+    [ApiVersion("1.0")]
     public class VillaNumberAPIController : Controller
     {
         public IVillaNumberRepo _db { get; }
@@ -62,6 +65,7 @@ namespace MagicVilla_VillaApi.Controllers
             {
                 if (villaNo == 0)
                 {
+                    _response.IsSuccess = false;
                     _response.statusCode = HttpStatusCode.BadRequest;
                     return BadRequest(_response);
                 }
@@ -69,8 +73,9 @@ namespace MagicVilla_VillaApi.Controllers
 
                 if (villaNumber == null)
                 {
+                    _response.IsSuccess = false;
                     _response.statusCode = HttpStatusCode.NotFound;
-                    return NotFound();
+                    return NotFound(_response);
                 }
                 VillaNumberDto villaNumberDto = _mapper.Map<VillaNumberDto>(villaNumber);
                 _response.Result = villaNumberDto;
@@ -85,7 +90,7 @@ namespace MagicVilla_VillaApi.Controllers
             return _response;
         }
 
-        [HttpPost(Name ="CreateVillaNumber")]
+        [HttpPost(Name = "CreateVillaNumber")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -96,19 +101,20 @@ namespace MagicVilla_VillaApi.Controllers
             try
             {
                 if (await _db.Get(v => v.VillaNo == villaNoDTO.VillaNo) != null)
-                    {
-                        //custom Validation
-                        ModelState.AddModelError("UniqueVillaName", "villa already exists");
-                        return BadRequest(ModelState);
-                    }
+                {
+                    //custom Validation
+                    ModelState.AddModelError("UniqueVillaName", "villa already exists");
+                    return BadRequest(ModelState);
+                }
                 if (await _villaDb.Get(v => v.Id == villaNoDTO.VillaId) == null)
-                    {
-                        //custom Validation
-                        ModelState.AddModelError("VillaIdNotValid", "the villa id is not valid");
-                        return BadRequest(ModelState);
-                    }
+                {
+                    //custom Validation
+                    ModelState.AddModelError("VillaIdNotValid", "the villa id is not valid");
+                    return BadRequest(ModelState);
+                }
                 if (villaNoDTO == null)
                 {
+                    _response.IsSuccess = false;
                     _response.statusCode = HttpStatusCode.BadRequest;
                     return BadRequest(_response);
                 }
@@ -130,7 +136,7 @@ namespace MagicVilla_VillaApi.Controllers
 
 
         }
-        
+
         [HttpDelete("{villaNo:int}", Name = "DeleteVillaNumber")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -142,11 +148,14 @@ namespace MagicVilla_VillaApi.Controllers
             {
                 if (villaNo == 0)
                 {
-                    return BadRequest();
+                    _response.IsSuccess = false;
+                    _response.statusCode = HttpStatusCode.BadRequest;
+                    return BadRequest(_response);
                 }
                 var villaNumber = await _db.Get(v => v.VillaNo == villaNo);
                 if (villaNumber == null)
                 {
+                    _response.IsSuccess = false;
                     _response.statusCode = HttpStatusCode.NotFound;
                     return NotFound(_response);
                 }
@@ -156,32 +165,34 @@ namespace MagicVilla_VillaApi.Controllers
 
                 return Ok(_response);
             }
-             catch (Exception e)
+            catch (Exception e)
             {
                 _response.IsSuccess = false;
                 _response.ErrorMessages = new List<string>() { e.ToString() };
             }
-            return _response; 
+            return _response;
         }
 
-        [HttpPut("{villaNo:int}",Name ="UpdateVillaNumber")]
+        [HttpPut("{villaNo:int}", Name = "UpdateVillaNumber")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<ApiResponse>> UpdateVillaNumber(int villaNo, [FromBody] VillaNumberUpdateDTO villaNoUpdateDTO) {
+        public async Task<ActionResult<ApiResponse>> UpdateVillaNumber(int villaNo, [FromBody] VillaNumberUpdateDTO villaNoUpdateDTO)
+        {
             try
             {
                 if (villaNo == 0 || villaNo != villaNoUpdateDTO.VillaNo)
                 {
+                    _response.IsSuccess = false;
                     _response.statusCode = HttpStatusCode.NoContent;
                     return BadRequest(_response);
                 }
                 if (await _villaDb.Get(v => v.Id == villaNoUpdateDTO.VillaId) == null)
-                    {
-                        //custom Validation
-                        ModelState.AddModelError("VillaIdNotValid", "the villa id is not valid");
-                        return BadRequest(ModelState);
-                    }
+                {
+                    //custom Validation
+                    ModelState.AddModelError("VillaIdNotValid", "the villa id is not valid");
+                    return BadRequest(ModelState);
+                }
                 VillaNumber villaNumber = _mapper.Map<VillaNumber>(villaNoUpdateDTO);
 
                 await _db.Update(villaNumber);
@@ -190,13 +201,13 @@ namespace MagicVilla_VillaApi.Controllers
 
                 return Ok(_response);
             }
-             catch (Exception e)
+            catch (Exception e)
             {
                 _response.IsSuccess = false;
                 _response.ErrorMessages = new List<string>() { e.ToString() };
             }
-            return _response; 
+            return _response;
         }
-        
+
     }
     }

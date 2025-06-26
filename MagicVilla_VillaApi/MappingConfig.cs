@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using MagicVilla_VillaApi.Models;
+using MagicVilla_VillaApi.Models.Security.User.DTO;
 using MagicVilla_VillaApi.Models.VillaNumber;
 using MagicVilla_VillaApi.Models.VillaNumber.DTO;
 
@@ -24,7 +25,7 @@ namespace MagicVilla_VillaApi
             CreateMap<VillaNumber, VillaNumberUpdateDTO>().ReverseMap();
             CreateMap<VillaNumberDto, VillaNumberCreateDTO>().ReverseMap();
             CreateMap<VillaNumberDto, VillaNumberUpdateDTO>().ReverseMap();
-
+            CreateMap<ApplicationUser, UserDTO>().ReverseMap();
         }
     }
 }

@@ -1,0 +1,12 @@
+D:\Projet_Formation_.NET\MagicVilla_Utility\bin\Debug\net8.0\MagicVilla_Utility.deps.json
+D:\Projet_Formation_.NET\MagicVilla_Utility\bin\Debug\net8.0\MagicVilla_Utility.dll
+D:\Projet_Formation_.NET\MagicVilla_Utility\bin\Debug\net8.0\MagicVilla_Utility.pdb
+D:\Projet_Formation_.NET\MagicVilla_Utility\obj\Debug\net8.0\MagicVilla_Utility.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projet_Formation_.NET\MagicVilla_Utility\obj\Debug\net8.0\MagicVilla_Utility.AssemblyInfoInputs.cache
+D:\Projet_Formation_.NET\MagicVilla_Utility\obj\Debug\net8.0\MagicVilla_Utility.AssemblyInfo.cs
+D:\Projet_Formation_.NET\MagicVilla_Utility\obj\Debug\net8.0\MagicVilla_Utility.csproj.CoreCompileInputs.cache
+D:\Projet_Formation_.NET\MagicVilla_Utility\obj\Debug\net8.0\MagicVilla_Utility.sourcelink.json
+D:\Projet_Formation_.NET\MagicVilla_Utility\obj\Debug\net8.0\MagicVilla_Utility.dll
+D:\Projet_Formation_.NET\MagicVilla_Utility\obj\Debug\net8.0\refint\MagicVilla_Utility.dll
+D:\Projet_Formation_.NET\MagicVilla_Utility\obj\Debug\net8.0\MagicVilla_Utility.pdb
+D:\Projet_Formation_.NET\MagicVilla_Utility\obj\Debug\net8.0\ref\MagicVilla_Utility.dll

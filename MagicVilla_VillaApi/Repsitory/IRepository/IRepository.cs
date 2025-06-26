@@ -8,7 +8,7 @@ namespace MagicVilla_VillaApi.Repsitory.IRepository
 {
     public interface IRepository<T> where T : class
     {
-        Task<List<T>> GetAll(Expression<Func<T, bool>>? filter = null);
+        Task<List<T>> GetAll(Expression<Func<T, bool>>? filter = null,int pageSize=3,int pageNumber=1);
         Task<T> Get(Expression<Func<T, bool>> filter = null, bool tracked = true);
         Task Create(T villa);
         
